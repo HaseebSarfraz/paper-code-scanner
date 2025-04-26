@@ -1,0 +1,9 @@
+name: ci-check
+on: [push]
+
+jobs:
+  show-message:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "👋 The robot is alive!"
