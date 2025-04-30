@@ -1,0 +1,75 @@
+<!-- 1. Basic Landing-Page Skeleton
+Goal: Scaffold a bare-bones landing page using only semantic tags.
+
+Create landing.html with:
+
+html
+Copy
+Edit
+<header>…logo + nav links…</header>
+<main>
+  <section>…hero headline + subtext…</section>
+  <section>…features list…</section>
+</main>
+<footer>…copyright + small print…</footer>
+Check:
+
+Exactly one <header> and <footer>
+
+Two <section>s inside <main>
+
+No stray <div>s for layout
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+   <head>
+     <meta charset="utf-8">
+     <title>Landing Page Skeleton</title>
+     <!-- Place metadata, <link> to CSS, <script> tags here -->
+   </head>
+   <body>
+ 
+     <!-- 2. The header: logo + nav -->
+     <header>
+       <!-- logo as a link back home -->
+       <a href="/">
+         <img
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png"
+           alt="Site Logo"
+           width="120"
+         />
+       </a>
+       <nav>
+         <ul>
+           <li><a href="#section-1">Home</a></li>
+           <li><a href="#features">Features</a></li>
+           <li><a href="#contact">Contact</a></li>
+         </ul>
+       </nav>
+     </header>
+ 
+     <!-- 3. Main content with exactly two sections -->
+     <main>
+       <section id="section-1">
+         <h1>Here Is Our First Section</h1>
+         <p>We are trying to figure out the content of our first section.</p>
+       </section>
+ 
+       <section id="features">
+         <h2>Features List</h2>
+         <ul>
+           <li>Feature One</li>
+           <li>Feature Two</li>
+           <li>Feature Three</li>
+         </ul>
+       </section>
+     </main>
+ 
+     <!-- 4. Footer -->
+     <footer>
+       &copy; 2025 Kamdar Pvt. Limited
+     </footer>
+ 
+   </body>
+ </html>
