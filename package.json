@@ -1,0 +1,26 @@
+{
+  "name": "paper-code-scanner",
+  "version": "1.0.0",
+  "main": "index.js",
+ "scripts": {
+  "dev":   "tailwindcss -i ./styles.css -o ./dist/output.css --watch",
+  "build": "tailwindcss -i ./styles.css -o ./dist/output.css"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaseebSarfraz/paper-code-scanner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HaseebSarfraz/paper-code-scanner/issues"
+  },
+  "homepage": "https://github.com/HaseebSarfraz/paper-code-scanner#readme",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
+  }
+}
