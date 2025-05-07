@@ -11,20 +11,20 @@ of pure html!!! -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="prac-styles.css">
+<link href="../dist/output.css" rel="stylesheet" />
 
 </head>
 
 <body>
-<div class="header">
-  <h1>OurLogo</h1>
-  <ul class="nav">
-
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Portfolio</a </li>
-  </ul>
-</div>
+  <header class="flex flex-wrap items-center justify-between bg-indigo-800 text-white px-11">  <!-- 45 px ≈ 11 (11*4=44) -->
+    <h1 class="text-2xl font-semibold">OurLogo</h1>
+  
+    <ul class="flex space-x-5">              <!-- 20 px gap ≈ 5 (5*4=20) -->
+      <li><a href="#" class="block transition-transform duration-300 hover:text-indigo-200 hover:rotate-6">Home</a></li>
+      <li><a href="#" class="block transition-transform duration-300 hover:text-indigo-200 hover:rotate-6">About</a></li>
+      <li><a href="#" class="block transition-transform duration-300 hover:text-indigo-200 hover:rotate-6">Portfolio</a></li>
+    </ul>
+  </header>
 
 <div class="hero">
 
