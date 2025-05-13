@@ -6,6 +6,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}", // future JS/TS/React files
     "./html+ css practice/**/*.html"
   ],
-  theme: { extend: {} },
+  theme: { 
+    extend: {
+      fontFamily: {
+        cursive: ["'Great Vibes'", "cursive"]
+      }
+    } },
   plugins: [],
 };
