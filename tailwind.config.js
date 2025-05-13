@@ -9,7 +9,9 @@ module.exports = {
   theme: { 
     extend: {
       fontFamily: {
-        cursive: ["'Great Vibes'", "cursive"]
+        cursive: ["'Great Vibes'", "cursive"],
+        kaushan: ["'Kaushan Script", "cursive"],
+        marker:  ["'Permanent Marker'", "cursive"]
       }
     } },
   plugins: [],

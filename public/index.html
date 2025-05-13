@@ -9,31 +9,97 @@
     rel="stylesheet"
   />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,
+  wdth,wght@0,75..100,300..800;1,75..100,300..800&family=Permanent+Marker&display=swap" 
+  rel="stylesheet">
+  
   <title>Tailwind smoke test</title>
 </head>
 
-<body class="bg-[#CFCFCF]">
+<body class="bg-[#FFFFFF] min-h-screen flex flex-col bg-gray-50">
 
-  <header class="flex justify-between bg-black">
+  <header class="flex justify-between bg-100">
 
-  
-  <h1 class="font-cursive text-gray-100 px-6 py-4 text-4xl">
-    Paper To Compiler 
-  </h1>
+    <!-- Add underline and custom font for the header + create logo -->
+    <!-- header always appears first in body -->
 
-  <ul class="flex items-center space-x-8 font-bold text-gray-100 px-6 py-4"> 
-    
-    <li class=""><a href="#">Home</a></li>
+    <h1 class="italic font-marker text-green-600 px-6 py-4 text-4xl">
+      Paper To Compiler  
+    </h1>
 
-    <li class=""><a href="#">About</a></li>
+    <ul class="italic flex items-center space-x-8 text-gray-100 px-6 py-4"> 
+      
+      <li class="text-green-600 "><a href="#">Home</a></li>
 
-    <li class=""><a href="#">Help</a></li>
-    
+      <li class="text-green-600"><a href="#">About</a></li>
 
-  </ul>
+      <li class="text-green-600"><a href="#">Help</a></li>
 
-</header>
+    </ul>
 
+  </header>
+
+  <div class="flex flex-1">
+
+      <!-- 2) Page Sidebar -->
+    <aside class="w-64 bg-white border-r border-gray-200 p-4 ">
+      <h2 class="text-lg font-semibold mb-4">History</h2>
+      <ul class="space-y-2">
+        <li class="text-green-600">📂 Project A</li>
+        <li class="pl-4">file1.py</li>
+        <li class="pl-4">file2.py</li>
+        <li class="text-green-600">📂 Project B</li>
+        <li class="pl-4">main.cpp</li>
+        <li class="pl-4">utils.cpp</li>
+      </ul>
+    </aside>
+
+
+    <!-- Now we will begin styling the center of the web page -->
+
+    <div class="flex flex-1 justify-center p-4"> 
+
+      <div class="relative bg-white rounded-lg shadow-md w-full max-w-4xl
+      flex flex-col">
+
+      <!-- Top of the card-->
+
+        <div class="bg-white rounded-t-lg px-6 py-3 flex space-x-6">
+          <button class="pb-2 border-b-2 border-green-600 text-green-600">Scan</button>
+          <button class="pb-2 text-gray-500 hover:text-gray-700">Upload</button>
+          <button class="pb-2 text-gray-500 hover:text-gray-700">Compile</button>
+        </div>
+
+        <!-- Spacer so content sits below the tabs -->
+        <div class="pt-6"></div>
+
+        <!-- 2. Two‑pane row WITH divide-x -->
+        <div class="flex divide-x divide-gray-200">
+          
+          <!-- Left Pane -->
+          
+          <div class="w-1/2 p-6">
+            <textarea
+              class="w-full h-64 resize-none focus:outline-none"
+              placeholder="Enter or paste text…"
+            ></textarea>
+          </div>
+          
+          <!-- Right Pane -->
+          
+          <div class="w-1/2 p-6">
+            <!-- your Humanize button, results, etc. -->
+          </div>
+        
+        </div>
+
+      </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
