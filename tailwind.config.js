@@ -10,8 +10,14 @@ module.exports = {
     extend: {
       fontFamily: {
         cursive: ["'Great Vibes'", "cursive"],
-        kaushan: ["'Kaushan Script", "cursive"],
-        marker:  ["'Permanent Marker'", "cursive"]
+        kaushan: ["'Kaushan Script"],
+        marker:  ["'Permanent Marker'", "cursive"],
+        pacifico: ['Pacifico', 'cursive']
+      },
+
+      colors: {
+
+
       }
     } },
   plugins: [],
