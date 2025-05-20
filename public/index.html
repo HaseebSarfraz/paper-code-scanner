@@ -6,6 +6,14 @@
   <!-- TailwindCSS CDN (quick prototyping) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Prism CSS (for styling code blocks) -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"
+  rel="stylesheet"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
   <!-- Google Fonts (load once) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,13 +51,13 @@
   <link rel="manifest" href="favicon_io/site.webmanifest">
 </head>
 
-<body class="min-h-screen flex flex-col bg-teal-100 font-['Marker',cursive]">
+<body class="min-h-screen flex flex-col font-['Marker',cursive] bg-slate-950">
   <!-- ================= HEADER ================= -->
-  <header class="flex items-center justify-between px-6 py-4 bg-white shadow-sm">
+  <header class="flex items-center justify-between px-6 py-2 bg-slate-950 shadow-sm">
     <!-- Animated Logo -->
-    <div class="flex items-center space-x-3 bg-teal-100">
+    <div class="space-x-3 w-fit">
       <svg id="logo" width="600" height="100" viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
-      <g fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round">
+      <g fill="none" stroke="#eeeeee" stroke-width="3" stroke-linejoin="round">
       <path d="M462.713 57.84C463.299 57.84 463.793 58.0533 464.193 58.48C464.619 58.88 464.833 59.3867 464.833 60C464.833 60.3467 464.753 60.72 464.593 61.12C464.166 62.1067 463.566 62.9333 462.793 63.6C462.019 64.2667 461.166 64.6 460.233 64.6C459.486 64.6 458.846 64.3333 458.313 63.8C457.806 63.2667 457.553 62.5467 457.553 61.64C457.553 61.1333 457.579 60.5867 457.633 60C457.686 59.5733 457.713 59.28 457.713 59.12C457.713 58.9067 457.659 58.7467 457.553 58.64C457.473 58.5333 457.366 58.48 457.233 58.48C456.859 58.48 456.353 58.9333 455.713 59.84C455.073 60.72 454.433 61.8933 453.793 63.36C453.153 64.8267 452.633 66.3733 452.233 68C451.939 69.28 451.606 70.1333 451.233 70.56C450.859 70.9867 450.246 71.2 449.393 71.2C448.379 71.2 447.659 70.6667 447.233 69.6C446.833 68.5333 446.633 66.8267 446.633 64.48C446.633 61.0133 447.126 57.72 448.113 54.6C448.353 53.8267 448.739 53.2667 449.273 52.92C449.833 52.5467 450.606 52.36 451.593 52.36C452.126 52.36 452.499 52.4267 452.713 52.56C452.926 52.6933 453.033 52.9467 453.033 53.32C453.033 53.7467 452.833 54.7067 452.433 56.2C452.166 57.2667 451.953 58.2 451.793 59C451.633 59.8 451.499 60.7867 451.393 61.96C452.273 59.6667 453.259 57.8 454.353 56.36C455.446 54.92 456.513 53.8933 457.553 53.28C458.593 52.6667 459.539 52.36 460.393 52.36C461.166 52.36 461.753 52.5867 462.153 53.04C462.579 53.4667 462.793 54.1067 462.793 54.96C462.793 55.4667 462.646 56.4267 462.353 57.84H462.713Z" fill="black"/>
       <path class="inner" d="M448.69 62.08C449.036 62.08 449.303 62.24 449.49 62.56C449.703 62.88 449.81 63.32 449.81 63.88C449.81 64.9467 449.556 65.7733 449.05 66.36C448.063 67.56 446.663 68.6667 444.85 69.68C443.063 70.6933 441.143 71.2 439.09 71.2C436.29 71.2 434.116 70.44 432.57 68.92C431.023 67.4 430.25 65.32 430.25 62.68C430.25 60.84 430.636 59.1333 431.41 57.56C432.183 55.96 433.25 54.6933 434.61 53.76C435.996 52.8267 437.556 52.36 439.29 52.36C440.836 52.36 442.076 52.8267 443.01 53.76C443.943 54.6667 444.41 55.9067 444.41 57.48C444.41 59.32 443.743 60.9067 442.41 62.24C441.103 63.5467 438.876 64.5867 435.73 65.36C436.396 66.5867 437.663 67.2 439.53 67.2C440.73 67.2 442.09 66.7867 443.61 65.96C445.156 65.1067 446.49 64 447.61 62.64C447.93 62.2667 448.29 62.08 448.69 62.08ZM438.61 56.28C437.623 56.28 436.783 56.8533 436.09 58C435.423 59.1467 435.09 60.5333 435.09 62.16V62.24C436.663 61.8667 437.903 61.3067 438.81 60.56C439.716 59.8133 440.17 58.9467 440.17 57.96C440.17 57.4533 440.023 57.0533 439.73 56.76C439.463 56.44 439.09 56.28 438.61 56.28Z" fill="black"/>
       <path d="M432.963 62.08C433.309 62.08 433.576 62.24 433.763 62.56C433.976 62.88 434.083 63.32 434.083 63.88C434.083 64.9467 433.829 65.7733 433.323 66.36C432.176 67.7733 430.923 68.9333 429.563 69.84C428.229 70.7467 426.709 71.2 425.003 71.2C422.656 71.2 420.909 70.1333 419.763 68C418.643 65.8667 418.083 63.1067 418.083 59.72C418.083 56.4667 418.496 52.76 419.323 48.6C420.176 44.44 421.416 40.8667 423.043 37.88C424.696 34.8933 426.656 33.4 428.923 33.4C430.203 33.4 431.203 34 431.923 35.2C432.669 36.3733 433.043 38.0667 433.043 40.28C433.043 43.4533 432.163 47.1333 430.403 51.32C428.643 55.5067 426.256 59.6533 423.243 63.76C423.429 64.8533 423.736 65.64 424.163 66.12C424.589 66.5733 425.149 66.8 425.843 66.8C426.936 66.8 427.896 66.4933 428.723 65.88C429.549 65.24 430.603 64.16 431.883 62.64C432.203 62.2667 432.563 62.08 432.963 62.08ZM428.043 37.36C427.429 37.36 426.736 38.4667 425.963 40.68C425.189 42.8933 424.509 45.64 423.923 48.92C423.336 52.2 423.016 55.3467 422.963 58.36C424.856 55.24 426.363 52.12 427.483 49C428.603 45.8533 429.163 42.9867 429.163 40.4C429.163 38.3733 428.789 37.36 428.043 37.36Z" fill="black"/>
@@ -82,81 +90,88 @@
       <path class="inner" d="M180.08 47.7598C180.08 45.8664 179.626 44.173 178.72 42.6797C177.84 41.1597 176.52 39.9601 174.76 39.0801C173.135 38.2551 171.17 37.8162 168.865 37.7646L168.4 37.7598C164.854 37.7598 161.601 38.7064 158.641 40.5996L158.097 40.9609C155.416 42.8234 153.251 45.5302 151.601 49.0801C149.867 52.84 149 57.4266 149 62.8398L149.005 63.374C149.053 66.0208 149.465 68.2691 150.24 70.1191C151.067 72.0925 152.161 73.5595 153.521 74.5195C154.82 75.4194 156.226 75.8978 157.736 75.9541L158.04 75.96C160.908 75.96 162.699 74.2201 163.414 70.7412L163.48 70.3994L165.2 60.7598C168.1 60.5598 170.625 59.9257 172.775 58.8584L173.2 58.6396C175.3 57.5147 176.931 56.0849 178.094 54.3506L178.32 54C179.42 52.2251 180.004 50.2857 180.073 48.1826L180.08 47.7598ZM167.32 47.8398C167.32 47.1198 167.12 46.5993 166.72 46.2793C166.393 45.9762 165.873 45.8055 165.158 45.7676L164.84 45.7598C164.067 45.7598 163.386 45.9594 162.8 46.3594L162.697 46.4326C162.196 46.8138 161.87 47.4295 161.72 48.2793C161.08 51.7726 160.587 54.5596 160.24 56.6396L159.953 56.6123C159.848 56.6006 159.734 56.586 159.61 56.5693L158.76 56.4395C158.693 56.4261 158.61 56.4158 158.51 56.4092L158.16 56.3994C157.573 56.3994 157.106 56.5733 156.76 56.9199L156.647 57.0557C156.403 57.3851 156.28 57.8063 156.28 58.3193L156.286 58.5254C156.312 58.9949 156.431 59.3931 156.641 59.7197C156.881 60.0662 157.4 60.3062 158.2 60.4395C158.165 60.4325 158.17 60.4356 158.216 60.4414L158.036 61.4258C158.025 61.424 158.015 61.4208 158.004 61.4189V61.4199C158.001 61.4194 157.997 61.418 157.992 61.417C157.158 61.2729 156.296 60.9785 155.818 60.2891L155.809 60.2744L155.799 60.2607C155.431 59.6887 155.28 59.0211 155.28 58.3193C155.28 57.5454 155.496 56.8147 156.025 56.2412L156.039 56.2266L156.053 56.2129C156.623 55.6426 157.364 55.3994 158.16 55.3994C158.43 55.3994 158.697 55.4115 158.924 55.4531H158.925C159.101 55.4825 159.264 55.5057 159.414 55.5283C159.748 53.5678 160.188 51.0911 160.736 48.0996C160.915 47.0957 161.33 46.2176 162.089 45.6396L162.245 45.5273C163.011 45.008 163.888 44.7598 164.84 44.7598C165.777 44.7598 166.694 44.9319 167.345 45.499L167.475 45.6104C168.098 46.1854 168.32 47.0014 168.32 47.8398C168.32 48.287 168.292 48.6956 168.225 49.0459L168.226 49.0469L167.143 55.417C169.029 55.0039 170.406 54.2767 171.35 53.2959C172.493 52.1082 173.12 50.4255 173.12 48.1191C173.12 46.6069 172.628 45.4558 171.679 44.5713L171.67 44.5635L171.661 44.5547C170.778 43.6923 169.297 43.1592 167 43.1592C164.486 43.1592 162.317 43.944 160.449 45.5186L160.45 45.5195C158.584 47.116 157.096 49.3684 156.021 52.334L156.022 52.335C154.975 55.2737 154.44 58.6638 154.44 62.5195C154.44 64.1054 154.594 65.484 154.888 66.665C155.213 67.8652 155.595 68.7343 156.003 69.3223C156.226 69.6102 156.409 69.7808 156.545 69.874C156.58 69.8983 156.61 69.9153 156.635 69.9277C156.658 69.8953 156.69 69.8507 156.725 69.7871C156.901 69.4671 157.089 68.9036 157.255 68.0273L158.398 61.4746C158.361 61.469 158.326 61.4636 158.295 61.459C158.18 61.4421 158.114 61.4331 158.086 61.4297C158.079 61.4288 158.083 61.4288 158.092 61.4297C158.096 61.4301 158.111 61.4316 158.131 61.4326C158.141 61.4331 158.163 61.434 158.191 61.4336C158.194 61.4336 158.292 61.4338 158.411 61.4053L158.571 60.4893C158.801 60.5235 159.131 60.5735 159.561 60.6396L158.24 68.1992C157.894 70.0392 157.386 70.96 156.72 70.96L156.63 70.9551C156.177 70.9145 155.7 70.5698 155.2 69.9199C154.694 69.2 154.267 68.1998 153.92 66.9199C153.64 65.7999 153.482 64.5367 153.447 63.1309L153.44 62.5195C153.44 58.5731 153.987 55.0666 155.08 52C156.2 48.9068 157.773 46.4931 159.8 44.7598C161.853 43.0265 164.253 42.1592 167 42.1592L167.447 42.166C169.647 42.2316 171.285 42.7898 172.36 43.8398C173.533 44.9331 174.12 46.3595 174.12 48.1191L174.112 48.5811C173.947 53.2818 171.216 55.968 165.92 56.6396L167.24 48.8799C167.28 48.6799 167.305 48.4346 167.315 48.1445L167.32 47.8398ZM181.08 47.7598C181.08 50.0559 180.52 52.1883 179.401 54.1387L179.17 54.5264C177.972 56.4601 176.274 58.041 174.111 59.2783L173.673 59.5215C171.48 60.6964 168.931 61.41 166.049 61.6904L164.465 70.5752V70.5762C164.111 72.5416 163.432 74.1474 162.335 75.2686C161.213 76.4153 159.747 76.96 158.04 76.96C156.202 76.9599 154.498 76.413 152.951 75.3418L152.943 75.3369C151.489 74.3102 150.347 72.8061 149.486 70.8936L149.317 70.5059C148.425 68.3758 148 65.809 148 62.8398C148 57.3245 148.883 52.5862 150.692 48.6611L150.693 48.6582L151.043 47.9336C152.828 44.364 155.174 41.6198 158.104 39.7559C161.225 37.7595 164.666 36.7598 168.4 36.7598C171.02 36.7598 173.305 37.2188 175.213 38.1875H175.212C177.116 39.1405 178.587 40.4612 179.575 42.1602L179.758 42.4746C180.644 44.0584 181.08 45.8279 181.08 47.7598Z" fill="black"/>
       </g>
       </svg>
-      <span class="text-2xl font-pacifico tracking-wide text-gray-800">Paper To Compiler</span>
+      
     </div>
 
     <!-- Navigation -->
     <nav>
       <ul class="flex items-center space-x-8 text-lg ">
-        <li><a href="#" class=" rounded-lg bg-green-200 hover:bg-green-500 transition-colors font-semibold">Home</a></li>
-        <li><a href="#" class=" rounded-lg bg-yellow-200 hover:bg-green-500 transition-colors font-semibold">About</a></li>
-        <li><a href="#" class=" rounded-lg bg-rose-300 hover:bg-green-500 transition-colors font-semibold">Help</a></li>
+        <li><a href="#" class=" rounded-lg  text-stone-200 transition-colors font-semibold">Home</a></li>
+        <li><a href="#" class=" rounded-lg  text-stone-200 transition-colors font-semibold">About</a></li>
+        <li><a href="#" class=" rounded-lg  text-stone-200 transition-colors font-semibold">Help</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- ================= LAYOUT ================= -->
-  <main class="flex flex-1">
+  <main class="flex flex-col bg-slate-950">
+
+    <button id="toggle-sidebar" class=" w-64 rounded px-9 mb-4 text-lg font-semibold text-stone-200 
+     w-fit hover:bg-stone-300 rounded">Folders</button>
+    
     <!-- Sidebar -->
-    <aside class="w-64 shrink-0 border-r border-gray-200 p-5 hidden lg:block">
-      <button class="rounded bg-purple-300 px-1 mb-4 text-lg font-semibold w-fit hover:bg-green-500">Folders</button>
-      <ul class="space-y-2 text-gray-700">
-        <button><li class="font-semibold text-gray-500 hover:bg-green-500">📂 Project A</li></button>
-        <li class="pl-6">file1.py</li>
-        <li class="pl-6">file2.py</li>
-        <li class="pt-2 font-semibold  text-gray-500 hover:bg-green-500">📂 Project B</li>
-        <li class="pl-6">main.cpp</li>
-        <li class="pl-6">utils.cpp</li>
-      </ul>
-    </aside>
+    <div class="flex flex-1">
+      <aside id ="sidebar" class="w-64 shrink-0 border-r border-gray-200 p-5">
+        <ul class="space-y-2 text-gray-700">
+          <button><li class="font-semibold  text-stone-200 hover:bg-stone-300 rounded">📂 Project A</li></button>
+          <li class="pl-6  text-stone-200 hover:bg-stone-300 rounded">file1.py</li>
+          <li class="pl-6  text-stone-200 hover:bg-stone-300 rounded">file2.py</li>
+          <li class="pt-2 font-semibold   text-stone-200 hover:bg-stone-300 rounded">📂 Project B</li>
+          <li class="pl-6  text-stone-200 hover:bg-stone-300 rounded">main.cpp</li>
+          <li class="pl-6  text-stone-200 hover:bg-stone-300 rounded">utils.cpp</li>
+        </ul>
+      </aside>
 
-    <!-- Work‑area -->
-    <section class="flex flex-1 items-start justify-center p-6 overflow-auto">
-      <div class="w-full max-w-4xl rounded-lg bg-white shadow">
-        <!-- Tabs -->
-        <div class="flex space-x-6 border-b px-6 pt-4">
-          <button class="pb-3 border-b-2 hover:bg-green-500 w-fit">Scan</button>
-          <button class=" rounded pb-3 hover:bg-amber-300 w-fit">Upload</button>
-          <button class="pb-3 hover:bg-green-500 w-fit">Compile</button>
-          <button class="pb-3 hover:bg-green-500 w-fit">Language</button>
-        </div>
-
-        <!-- Panes -->
-        <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200 p-6 gap-6">
-          <!-- Left -->
-          <div>
-            <textarea class="h-64 w-full resize-none border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500 p-3" placeholder="Enter or paste text…"></textarea>
+      <!-- Work‑area -->
+      <section class="flex flex-1 items-start justify-center p-6 overflow-auto">
+        <div class="w-full max-w-4xl rounded-lg bg-white shadow">
+          <!-- Tabs -->
+          <div class="flex space-x-6 border-b px-6 pt-4">
+            <button class="pb-3 border-b-2 hover:bg-stone-300 rounded w-fit">Scan</button>
+            <button class=" rounded pb-3 hover:bg-stone-300 rounded w-fit">Upload</button>
+            <button class="pb-3 hover:bg-stone-300 rounded w-fit">Compile</button>
+            <button class="pb-3 hover:bg-stone-300 rounded w-fit">Language</button>
           </div>
+          
 
-          <!-- Right -->
-          <div>
-            <!-- Placeholder for results / actions -->
-            <div class="h-64 flex items-center justify-center text-gray-400">Results will appear here…</div>
+          <!-- Panes -->
+          <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200 p-6 gap-6">
+            <!-- Left -->
+            <div>
+              <textarea class="h-64 w-full resize-none border border-gray-300 rounded focus:outline-none 
+              focus:ring-2 focus:ring-bg-stone-300 p-3" placeholder="Enter or paste text…"></textarea>
+            </div>
+
+            <!-- Right -->
+            <div>
+              <!-- Placeholder for results / actions -->
+              <div class="h-64 flex items-center justify-center text-gray-400">Results will appear here…</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
   <!-- ================= FOOTER ================= -->
   <footer class="py-4 text-center text-sm text-gray-500">© Tech‑Innova Pvt Ltd</footer>
 
-  <!-- ========== JS: draw‑animation setup ========== -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const SPEED = 150;   // px / s
-      const GAP   = 0.05;  // s between outlines
+  <!-- Prism core -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+  integrity="sha512-/3JbBzY6vxGfO+Z1bDAHbD0KlxX/TmK+fUxcXFN8pv1M+UbLrLT/5lq8msiLxliIeep2Z8gc3N1u+OxO+/rIJQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<!-- Prism “line numbers” plugin (optional) -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"
+  integrity="sha512-vNvuOSBB9EyWRdVIhYFzN2Syjh5zKZtW3nv+zLqoTxQXzFvJ+EE6ygJLEYkOKG+hayo5NhwcN7GvPzAXoSUZjw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
 
-      // 1) grab only the outline paths, ignore knock‑outs
-      const outlines = document.querySelectorAll('#logo path:not(.inner)');
-      outlines.forEach((p, i) => {
-        const L = p.getTotalLength();
-        p.style.setProperty('--len', L);
-        p.style.strokeDasharray = L;
-        p.style.strokeDashoffset = L;
-        p.style.animation = `draw ${L / SPEED}s linear ${GAP * i}s forwards`;
-      });
-    });
-  </script>
+  <!-- ========== JS: draw‑animation setup ========== -->
+   <script type="module" src="js/main.js"></script>
 </body>
 </html>
