@@ -2,8 +2,8 @@
 
 // 1) Use `const` for values that never change,
 //    `let` only if you plan to reassign later.
-const SPEED = 150;  // pixels per second
-const GAP   = 0.05; // seconds between strokes
+const SPEED = 150; // pixels per second
+const GAP = 0.05; // seconds between strokes
 
 window.addEventListener('DOMContentLoaded', () => {
   console.log('🔥 main.js loaded & DOM ready');
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
   outlines.forEach((path, i) => {
     const length = path.getTotalLength();
     path.style.setProperty('--len', length);
-    path.style.strokeDasharray  = length;
+    path.style.strokeDasharray = length;
     path.style.strokeDashoffset = length;
     path.style.animation = `
       draw ${length / SPEED}s
@@ -23,18 +23,18 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // —— LIVE HIGHLIGHTING —— //
-const textarea   = document.querySelector('textarea');
-const previewEl  = document.getElementById('preview');
+  const textarea = document.querySelector('textarea');
+  const previewEl = document.getElementById('preview');
 
-textarea.addEventListener('input', () => {
-  // Copy text over
-  previewEl.textContent = textarea.value;
-  // Re-run Prism on that <code>
-  Prism.highlightElement(previewEl);
-});
+  textarea.addEventListener('input', () => {
+    // Copy text over
+    previewEl.textContent = textarea.value;
+    // Re-run Prism on that <code>
+    Prism.highlightElement(previewEl);
+  });
 
   // —— SIDEBAR TOGGLE —— //
-  const sidebar   = document.getElementById('sidebar');
+  const sidebar = document.getElementById('sidebar');
   const toggleBtn = document.getElementById('toggle-sidebar');
   console.log({ sidebar, toggleBtn });
 
@@ -51,13 +51,14 @@ textarea.addEventListener('input', () => {
 
 // ——— Simple “ping” check ———
 fetch('ping.json')
-  .then(res => res.json())
-  .then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     console.log('⏱  pong →', data);
     // e.g. turn your status-dot green/red:
     const dot = document.querySelector('#status-dot');
     if (dot) {
-      dot.style.backgroundColor = data.status === 'ok' ? 'limegreen' : 'crimson';
+      dot.style.backgroundColor =
+        data.status === 'ok' ? 'limegreen' : 'crimson';
     }
   })
-  .catch(err => console.error('❌ ping failed', err));
+  .catch((err) => console.error('❌ ping failed', err));
