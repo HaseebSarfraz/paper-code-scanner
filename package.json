@@ -4,10 +4,10 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/output.css --watch",
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/output.css",
-    "lint": "eslint \"**/*.{js,mjs,cjs,ts,mts,cts}\"",
-    "format": "prettier --write \"**/*.{js,mjs,cjs,ts,mts,cts,json,css,md,html}\""
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint \"**/*.{js,mjs,cjs,ts,mts,cts}\""
   },
   "repository": {
     "type": "git",
@@ -22,15 +22,15 @@
   "homepage": "https://github.com/HaseebSarfraz/paper-code-scanner#readme",
   "devDependencies": {
     "@eslint/js": "^9.27.0",
+    "@types/node": "^22.15.23",
+    "@types/prismjs": "^1.26.5",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.27.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.4.0",
     "globals": "^16.1.0",
     "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
     "tailwindcss": "^3.4.17",
-    "typescript-eslint": "^8.32.1"
+    "typescript-eslint": "^8.32.1",
+    "vite": "^6.3.5"
   },
   "dependencies": {
     "ansi-regex": "^6.1.0",

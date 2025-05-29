@@ -1,27 +1,12 @@
 // eslint.config.js
 import globals from "globals";
 import js from "@eslint/js";
-import eslintPluginPrettier from "eslint-plugin-prettier";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import tsParser from "@typescript-eslint/parser";
 
 export default [
   // 1️⃣ Core ESLint rules
   js.configs.recommended,
-
-  // 2️⃣ Prettier plugin + report formatting errors
-  {
-    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-    },
-    plugins: {
-      prettier: eslintPluginPrettier,
-    },
-    rules: {
-      "prettier/prettier": "error",
-    },
-  },
 
   // 3) Browser files (public/js/*): window, document, fetch, Prism, etc.
   {
@@ -42,6 +27,26 @@ export default [
     },
   },
 
-  // 5) Finally, turn off any rules conflicting with Prettier
-  eslintConfigPrettier,
+  {
+    files: ["src/**/*.{ts,cts,mts,tsx}"],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+        project: "./tsconfig.json",
+      },
+      globals: {
+        ...globals.browser,
+        Prism: "readonly",
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tsPlugin,
+    },
+    rules: {
+      // pull in the “recommended” TS rules
+      ...tsPlugin.configs.recommended.rules,
+    },
+  },
 ];
