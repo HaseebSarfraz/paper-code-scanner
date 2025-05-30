@@ -1,0 +1,62 @@
+Phase 1: Image Refinement + Tesseract/EasyOCR Baseline
+
+Unify your preprocessing into a single function (grayscale, threshold, denoise, deskew).
+Call that on every image before you hand it to Tesseract or EasyOCR.
+
+Log confidences (via image_to_data) so you know which characters/words are still tripping
+ the engine.
+
+Ensemble outputs: for each word position, pick the highest-confidence prediction
+ across engines.
+
+Goal: nail down a stable, reproducible pipeline that gets you ≥ 90% token
+accuracy.
+
+Phase 2: Custom Model Training
+
+Reuse the same refinements in your Dataset pipeline. That way your CRNN/TrOCR
+sees exactly what your baseline did and learns from the cleaned inputs.
+
+Augment with small variations on your refinements (e.g. slightly different
+thresholds, random rotations of ±1°) so your model generalizes.
+
+Integrate a light LM during decoding:
+
+If you use CTC + beam search, plug in a bigram/trigram LM
+(e.g. “after for the token i is 45% likely”) to bias the decoder toward valid code tokens.
+
+Or after greedy decoding, run a quick n-gram corrector for common mistakes
+(f0r→for, missing colons, etc.).
+
+Goal: push your token accuracy past 95% on held-out scans before you even touch an LLM.
+
+
+Phase 3: LLM & Statistical Polishing
+
+Raw text → LLM prompt
+
+“Here’s a Python snippet with no indentation. Please add proper indentation and
+ fix any minor typos—don’t change the logic.”
+
+Post-LLM validation
+
+Parse with ast.parse to catch syntax errors.
+
+Fallback to a second pass or highlight failures for manual review.
+
+Statistical checks
+
+Maintain bigram counts from your own codebase (or from a corpus of Python code)
+to catch improbable token sequences.
+
+E.g., if your model outputs for i in range( you know a ) or : must follow.
+
+Why this will max out accuracy
+You’re squeezing every drop from classic OCR engines first.
+
+Your custom model is trained on the same cleaned inputs, so there’s no domain mismatch.
+
+Language priors (n-grams or transformer prompts) catch the last 1–2% of weird symbol errors.
+
+Automated validation with AST/linter prevents you from shipping broken code.
+
