@@ -1,37 +1,20 @@
-Phase 1: Image Refinement + Tesseract/EasyOCR Baseline
+Phase 1: Fine tune paddle ocr + CRNN
 
-Unify your preprocessing into a single function (grayscale, threshold, denoise, deskew).
-Call that on every image before you hand it to Tesseract or EasyOCR.
+We are using PP-OCRv5 Text Recognation Module
 
-Log confidences (via image_to_data) so you know which characters/words are still tripping
- the engine.
-
-Ensemble outputs: for each word position, pick the highest-confidence prediction
- across engines.
-
-Goal: nail down a stable, reproducible pipeline that gets you ≥ 90% token
-accuracy.
-
-Phase 2: Custom Model Training
-
-Reuse the same refinements in your Dataset pipeline. That way your CRNN/TrOCR
-sees exactly what your baseline did and learns from the cleaned inputs.
-
-Augment with small variations on your refinements (e.g. slightly different
-thresholds, random rotations of ±1°) so your model generalizes.
-
-Integrate a light LM during decoding:
-
-If you use CTC + beam search, plug in a bigram/trigram LM
-(e.g. “after for the token i is 45% likely”) to bias the decoder toward valid code tokens.
-
-Or after greedy decoding, run a quick n-gram corrector for common mistakes
-(f0r→for, missing colons, etc.).
-
-Goal: push your token accuracy past 95% on held-out scans before you even touch an LLM.
+rec_algorithm: CRNN  # or SVTR/SAR
+Architecture:
+  model_type: rec
+  Backbone:
+    name: ResNet
+  Neck:
+    name: SequenceEncoder
+  Head:
+    name: CTCHead
 
 
-Phase 3: LLM & Statistical Polishing
+
+Phase 2: LLM & Statistical Polishing
 
 Raw text → LLM prompt
 
