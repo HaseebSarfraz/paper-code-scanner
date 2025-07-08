@@ -22,5 +22,9 @@
   {
     "img_path": "Dataset/pending/images/WhatsApp Image 2025-06-25 at 19.56.18_4653c016 - Patrick Gaied.jpg",
     "label": "System.out.println(\"average: \" + avg().toString());}"
+  },
+  {
+    "img_path": "Dataset/pending/images/image - Danial.jpg",
+    "label": "for i in range(start_row, end_row):"
   }
 ]

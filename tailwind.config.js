@@ -17,7 +17,12 @@ module.exports = {
         pacifico: ["Pacifico", "cursive"],
       },
 
-      colors: {},
+      colors: {
+          accent: { 
+            DEFAULT: '#10b981',
+            ring: '#34d399'
+          }
+      },
     },
   },
   plugins: [],

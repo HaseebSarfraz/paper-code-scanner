@@ -1,19 +1,52 @@
-### Calendar Road Map (25 Apr → 06 Aug 2025)
+# Paper-to-Compiler — **Revised Road Map (MVP-first)**  
 
-| Week | Dates (2025)    | Mon – Fri learning + build tasks                                                                                                                                                                                      | App state by Sunday                                                                  | CSC209 Saturday lab                                                         | Hours |
-|------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|-------|
-| **0** | 25 Apr – 30 Apr | • Install VS Code, GitLens, ESLint, Prettier, Docker ext.<br>• `git init`, push repo, add GitHub Actions “hello” workflow.<br>• Create **index.html** + Live Server.<br>• Copy roadmap → **ROADMAP.md**, preview markdown. | Blank landing page with “Hello, world!”; repo shows green CI badge.                  | WSL + Linux tour, 25 shell cmds, write **hello.sh**.                        | 38    |
-| **1** | 01 May – 07 May | • Semantic HTML5 (header/main/footer).<br>• CSS Grid & Flexbox + Tailwind config.<br>• Build Apple-style hero (headline, subtext, CTA, responsive).<br>• Add favicon & colour palette.                                | Polished hero page that scales from phone to desktop; Tailwind classes everywhere.   | C “hello, world”; extend to **line-counter**; first Makefile (`all`/`clean`). | 31    |
-| **2** | 08 May – 14 May | • ES 2023 JS: modules, `const`/`let`, arrow funcs, fetch.<br>• Two-pane page: left `<textarea>`, right Prism.js highlighter.<br>• Tailwind cards, dark-mode toggle.<br>• Lint with ESLint, format with Prettier.      | Interactive highlighter—paste code, right pane colours instantly; dark-mode works.   | Pointers & dynamic array in C; run under **valgrind**.                       | 15    |
-| **3** | 15 May – 21 May | • Add TypeScript strict mode; create `tsconfig.json`.<br>• Migrate JS → TS (types for Prism & DOM).<br>• Swap dev-server to Vite w/ hot-reload.<br>• Zero TS errors; ESLint passes in CI.                            | Same UI but TS-powered; fast Vite refresh; CI fails if types break.                  | Improve Makefile: pattern rules, `.PHONY`, `make test`.                      | 15    |
-| **4** | 22 May – 28 May | • Scaffold React 19 app (Vite + TS).<br>• Build `Upload.tsx` (drag-drop / camera via `getUserMedia`).<br>• Fake OCR placeholder.<br>• Add React Router + `/about`.                                                 | React SPA: nav bar, upload zone, placeholder OCR with skeleton loader.               | `fork` → `execvp` → `waitpid` mini-**cp**; inspect return codes.              | 15    |
-| **5** | 29 May – 04 Jun | • Integrate **Monaco Editor**.<br>• Global state with React Context (`CodeContext`).<br>• Theme sync (light/dark) with Tailwind.<br>• Run button disabled for now.                                                   | Split-pane IDE: left read-only OCR preview, right Monaco; Run greyed-out.            | Unix pipes & filters: build **upper** prog; chain `cat file \| upper \| sort`. | 15    |
-| **6** | 05 Jun – 11 Jun | • Install Node 18; Express server `/ping`.<br>• Stub `/ai/analyse` returns mock JSON.<br>• Front-end polls `/ping`; status dot.<br>• Show mock Insights card.                                                      | API-connected UI: green/red dot; Insights tab with dummy advice.                     | Add **SIGINT** handler to *upper*; Ctrl-C exits cleanly.                     | 15    |
-| **7** | 12 Jun – 18 Jun | • Add Prisma ORM + `sqlite.db`; define `Run` model.<br>• Seed dummy rows; `/runs` REST endpoints.<br>• Build History table (badges).                                                                                | History view lists dummy runs (lang, hash, status).                                  | POSIX threads: producer/consumer with mutex + cond-var.                      | 15    |
-| **8** | 19 Jun – 25 Jun | • `ng new scanner-ng` (Angular 19).<br>• Material upload card + fake OCR.<br>• Serve `/ng` via Vite proxy.<br>• Compare Signals vs React hooks.                                                                    | Angular demo at `/ng` (indigo toolbar); React still default.                         | `gdb` walk-through: inspect vars, `errno`, backtrace.                         | 15    |
-| **9** | 26 Jun – 02 Jul | • Decide React **or** Angular primary.<br>• Remove alt framework; cleanup styles.<br>• Create ESLint/Prettier monorepo config.<br>• Commit `ARCHIVE.md`.                                                             | Unified code-base, one framework, new logo.                                          | `dup2`, build mini **tee** clone; FD juggling practice.                      | 15    |
-| **10**| 03 Jul – 09 Jul | • FastAPI OCR endpoint (Tesseract).<br>• Front-end posts image → real code.<br>• Add progress ring.<br>• Hook `/ai/analyse` to Llama-3 8 B Q4.                                                                      | Real OCR + AI tips: user sees extracted code & edge-case advice.                     | TCP echo server + client in C.                                               | 15    |
-| **11**| 10 Jul – 16 Jul | • Build Docker image for sandbox compiler.<br>• Node spawns container, streams stdout via **SSE**.<br>• Console drawer UI, ANSI colours, Stop btn; 60 s timeout.                                                    | Runnable code: click Run, console streams in real-time.                              | Handle **SIGTERM** in echo server; graceful exit.                            | 15    |
-| **12**| 17 Jul – 23 Jul | • Add JWT auth (register / login).<br>• `User` model; link Runs ↔ Users.<br>• Personal history filter; avatar.<br>• AI suggests unit tests.                                                                           | User accounts live; avatar shows; History private; Insights suggests tests.           | Bash script: `git pull`, tar compress, `scp` to remote.                      | 15    |
-| **13**| 24 Jul – 30 Jul | • Add `manifest.json`, icons, service-worker.<br>• Cache UI & last run; offline snackbar.<br>• Fix a11y + colour to hit Lighthouse ≥ 90.                                                                               | Installable **PWA**; offline mode works; Lighthouse passes.                           | 20-syscall crib-sheet timed quiz.                                            | 15    |
-| **14**| 31 Jul – 06 Aug | • Write `docker-compose.yml` (gateway, API, DB).<br>• GitHub Action: tag → build & deploy to Render.<br>• Draft + publish tech-blog.<br>• Tag repo **v1.0.0**.                                                      | Public URL live `https://scanmycode.app`, footer “v1.0.0 • Blog”.                     | Free week: revisit any weak CSC209 topic.                                    | 15    |
+**Profile & Assumptions**
+
+| Skill              | Level | Notes |
+|--------------------|-------|-------|
+| Python + FastAPI   | ✅ good | use for all back-end work |
+| Java / JavaFX      | ✅ good | not needed for this project |
+| React (Vite + TS)  | 🚩 new | assume 8-10 h to reach “comfortable basics” |
+| Tailwind CSS       | ☑ basics | can read classes, will reinforce while coding |
+| Docker             | 🚩 new | postpone sandbox work until last sprint |
+
+> **Total runway:** ~ 5½ weeks of focused evenings / weekends (≈ 15 h / wk)  
+> **Goal:** Public demo URL + GitHub repo that a prof/employer can clone & run.
+
+---
+
+## Sprint Plan
+
+| Sprint | Calendar (2025) | Deliverable by Sunday | Key Tasks | Est. hrs |
+|:------:|:---------------:|-----------------------|-----------|:-------:|
+| **A** | **24 Jun → 30 Jun** | Vite + React TS project that replicates your current static page | * Kick-start project: `npm create vite@latest scanner -- --template react-ts`  <br> * Install Tailwind + daisyUI (or shadcn)  <br> * Break existing HTML into `<Header/>`, `<EditorPane/>`, `<ResultPane/>`  <br> * Static layout only; no state yet | **18 h** |
+| **B** | **01 Jul → 07 Jul** | “Fake OCR” flow end-to-end | * Add drag-drop/camera (`react-dropzone`, `getUserMedia`)  <br> * Stub FastAPI `/api/ocr/fake` → returns dummy code  <br> * Wire React fetch; display code in a **Monaco** read-only editor  <br> * Buttons: **Upload**, **Reset** | **15 h** |
+| **C** | **08 Jul → 14 Jul** | Real PaddleOCR + LLM “fix indentation” API | * Package your finetuned PaddleOCR in FastAPI route `/ocr`  <br> * Call GPT-4o (or local model) in `/fix`; return JSON `{fixed_code}`  <br> * React: editable Monaco pane; “Apply Fixes” button | **20 h** |
+| **D** | **15 Jul → 21 Jul** | Test-runner MVP (no sandbox) | * Hard-code 5–7 pytest test-files per exercise  <br> * FastAPI `/analyse` runs `pytest`, parses results → JSON  <br> * UI: **Analyse** button, progress spinner, results panel (“3/7 passed…”) | **17 h** |
+| **E** | **22 Jul → 27 Jul** | Public deploy + UI polish | * GitHub Actions: lint, `npm test`, `pytest`  <br> * Deploy front-end to **Vercel**; API to **Render**/**Railway**  <br> * Add dark-mode toggle, better spacing, favicon, README GIF  <br> * Record 30-sec Loom demo; share with profs | **16 h** |
+| **F** *(optional)* | **29 Jul → 06 Aug** | Secure code-exec (Docker sandbox) & PWA niceties | * Create minimal `Dockerfile` (python:3.11-slim + pytest)  <br> * Spawn container per run (timeout 8 s)  <br> * Add service-worker, offline cache, Lighthouse ≥ 90 | **??** |
+
+---
+
+## UI Cleanup Checklist (you’ll chip away each sprint)
+
+- [ ] Replace textarea with **Monaco Editor** (theme matches Tailwind dark/light)
+- [ ] Align header nav: logo left, menu (“Upload / Sample”) right
+- [ ] Convert hard-coded sizes to responsive Tailwind classes
+- [ ] Add **Toast** component for errors / success
+- [ ] Disable buttons while network request in flight
+- [ ] `react-router-dom` route structure: `/` • `/about` (optional)
+- [ ] Accessibility: semantic `button`, `label`, `aria-busy`
+
+---
+
+### Deployment Quick-Start (for Sprint E)
+
+```bash
+# front-end
+npm run build         # outputs dist/
+vercel deploy         # detects Vite
+
+# back-end
+# on Render/Railway
+gunicorn -k uvicorn.workers.UvicornWorker api:app
