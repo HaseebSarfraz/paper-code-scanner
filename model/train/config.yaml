@@ -1,0 +1,198 @@
+Global:
+  epoch_num: 10
+  pretrained_model: model/checkpoints/syn150_run6/iter_epoch_40
+  save_model_dir: model/checkpoints/syn150_run6_real_finetune
+  character_dict_path: model/custom_dict/python_ascii.txt
+  save_epoch_step: 1
+  eval_epoch_step: 1
+  eval_batch_step: [0, 2]
+  log_smooth_window: 20
+  print_batch_step: 10
+  cal_metric_during_train: True
+
+Optimizer:
+  name: Adam
+  beta1: 0.9
+  beta2: 0.999
+  weight_decay: 0.0
+  lr:
+    name: Cosine
+    learning_rate: 0.00005
+    warmup_epoch: 0.0
+
+Architecture:
+  model_type: rec
+  algorithm: CRNN
+  Transform:
+    name: TPS
+    num_fiducial: 20
+    loc_lr: 0.1
+    model_name: TPS
+  Backbone:
+    name: ResNet
+    layers: 34
+  Neck:
+    name: SequenceEncoder
+    encoder_type: rnn
+    hidden_size: 256
+  Head:
+    name: CTCHead
+    fc_decay: 0.00001
+
+Loss:
+  name: CTCLoss
+
+PostProcess:
+  name: CTCLabelDecode
+  character_dict_path: model/custom_dict/python_ascii.txt
+  max_text_length: 32
+
+Metric:
+  name: RecMetric
+  main_indicator: acc
+
+Train:
+  freeze_backbone_epoch: 0
+  dataset:
+    name: SimpleDataSet
+    data_dir: model/Dataset/dev
+    label_file_list: ["model/Dataset/dev/pairs.txt"]
+    transforms:
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: False
+      - RecAug: {}          # light augmentation to slightly diversify 9 samples
+      - RecResizeImg:
+          image_shape: [3, 32, 100]
+      - CTCLabelEncode:
+          max_text_length: 32
+      - KeepKeys:
+          keep_keys: ["image", "label", "length"]
+  loader:
+    shuffle: True
+    batch_size_per_card: 8
+    drop_last: True
+    num_workers: 2
+
+Eval:
+  dataset:
+    name: SimpleDataSet
+    data_dir: model/Dataset/dev
+    label_file_list: ["model/Dataset/dev/pairs.txt"]
+    transforms:
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: False
+      - RecResizeImg:
+          image_shape: [3, 32, 100]
+      - CTCLabelEncode:
+          max_text_length: 32
+      - KeepKeys:
+          keep_keys: ["image", "label", "length"]
+  loader:
+    shuffle: False
+    batch_size_per_card: 8
+    drop_last: False
+    num_workers: 2
+
+#Global:
+#  epoch_num: 40
+#  pretrained_model: model/checkpoints/syn150_run5/iter_epoch_40
+#  save_model_dir: model/checkpoints/syn150_run6
+#  character_dict_path: model/custom_dict/python_ascii.txt
+#  save_epoch_step: 1
+#  eval_epoch_step: 1            # evaluate every epoch
+#  eval_batch_step: [0, 2]  # dummy placeholder (required by code)
+#  log_smooth_window: 20
+#  print_batch_step: 10
+#  cal_metric_during_train: True
+#
+#
+#Optimizer:
+#  name: Adam
+#  beta1: 0.9
+#  beta2: 0.999
+#  weight_decay: 0.0
+#  lr:
+#    name: Cosine
+#    learning_rate: 0.0003
+#    warmup_epoch: 0.1
+#
+#Architecture:
+#  model_type: rec
+#  algorithm: CRNN
+#  Transform:
+#    name: TPS
+#    num_fiducial: 20
+#    loc_lr: 0.1
+#    model_name: TPS
+#  Backbone:
+#    name: ResNet
+#    layers: 34
+#  Neck:
+#    name: SequenceEncoder
+#    encoder_type: rnn
+#    hidden_size: 256
+#  Head:
+#    name: CTCHead
+#    fc_decay: 0.00001
+#
+#Loss:
+#  name: CTCLoss
+#
+## ---------- POST‑PROCESS ----------
+#PostProcess:
+#  name: CTCLabelDecode          # standard for CTC‑based recognisers
+#  character_dict_path: model/custom_dict/python_ascii.txt
+#  max_text_length: 32           # must match CTCLabelEncode
+#
+## ---------- TRAIN DATA ----------
+#Metric:
+#  name: RecMetric          # built‑in metric for CTC recognition
+#  main_indicator: acc      # tells the logger what to display
+#
+#
+#Train:
+#  freeze_backbone_epoch: 5
+#  dataset:
+#    name: SimpleDataSet
+#    data_dir: model/Dataset/train
+#    label_file_list: ["model/Dataset/train/pairs.txt"]
+#    transforms:
+#      - DecodeImage:
+#          img_mode: BGR
+#          channel_first: False
+#      - RecAug: { }
+#      - RecResizeImg:
+#          image_shape: [ 3, 32, 100 ]
+#      - CTCLabelEncode:
+#          max_text_length: 32
+#      - KeepKeys:
+#          keep_keys: [ "image", "label", "length"]
+#  loader:
+#    shuffle: True
+#    batch_size_per_card: 32
+#    drop_last: True
+#    num_workers: 4
+#
+## ---------- DEV DATA ----------
+#Eval:
+#  dataset:
+#    name: SimpleDataSet
+#    data_dir: model/Dataset/dev
+#    label_file_list: ["model/Dataset/dev/pairs.txt"]
+#    transforms:
+#      - DecodeImage:
+#          img_mode: BGR
+#          channel_first: False
+#      - RecResizeImg:
+#          image_shape: [ 3, 32, 100 ]
+#      - CTCLabelEncode:
+#          max_text_length: 32
+#      - KeepKeys:
+#          keep_keys: [ "image", "label", "length"]
+#  loader:
+#    shuffle: False
+#    batch_size_per_card: 32
+#    drop_last: False
+#    num_workers: 2

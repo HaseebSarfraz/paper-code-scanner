@@ -12,7 +12,7 @@ def run_ocr():
     # 1  create the pipeline
     ocr = PaddleOCR(use_textline_orientation=True, lang="en")
     # Path to your image
-    json_path = Path(r"C:\Users\sarfr\Documents\dev-orig\paper-code-scanner\model\Dataset\pending\pairs.json")
+    json_path = Path(r"C:\Users\sarfr\Documents\dev-orig\paper-code-scanner\model\Dataset\train\pairs.json")
 
     try:
 

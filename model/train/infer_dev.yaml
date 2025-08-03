@@ -1,0 +1,55 @@
+Global:
+  pretrained_model: model/checkpoints/syn150_run6_real_finetune/iter_epoch_10
+  character_dict_path: model/custom_dict/python_ascii.txt
+  use_gpu: False
+  infer_img: model/Dataset/dev/images    # required by infer_rec.py
+
+Architecture:
+  model_type: rec
+  algorithm: CRNN
+  Transform:
+    name: TPS
+    num_fiducial: 20
+    loc_lr: 0.1
+    model_name: TPS
+  Backbone:
+    name: ResNet
+    layers: 34
+  Neck:
+    name: SequenceEncoder
+    encoder_type: rnn
+    hidden_size: 256
+  Head:
+    name: CTCHead
+    fc_decay: 0.00001
+
+PostProcess:
+  name: CTCLabelDecode
+  character_dict_path: model/custom_dict/python_ascii.txt
+  max_text_length: 32
+
+Eval:
+  dataset:
+    name: SimpleDataSet
+    data_dir: model/Dataset/dev
+    label_file_list: ["model/Dataset/dev/pairs.txt"]
+    transforms:
+      - DecodeImage:
+          img_mode: BGR
+          channel_first: False
+      - RecResizeImg:
+          image_shape: [3, 32, 100]
+      - CTCLabelEncode:
+          max_text_length: 32
+      - KeepKeys:
+          keep_keys: ["image", "label", "length"]
+  loader:
+    shuffle: False
+    batch_size_per_card: 32
+    drop_last: False
+    num_workers: 2
+
+Infer:
+  image_dir: model/Dataset/dev/images
+  rec_char_dict_path: model/custom_dict/python_ascii.txt
+  use_gpu: False
