@@ -1,0 +1,9 @@
+images/sample_dev_001.png	if filter_string == " ":
+images/sample_dev_002.png	for a in self.sights[today]:
+images/sample_dev_003.png	for keys, values in trie.items():
+images/sample_dev_004.png	x = "hello world"
+images/sample_dev_005.jpeg	input(f"Attempt {attempts + 1}/{max_attempts}: Enter here: "
+images/sample_dev_006.jpg	System.out.println("average: " + avg().toString());}
+images/sample_dev_007.jpg	for i in range(start_row, end_row):
+images/sample_dev_008.png	average = math.ceil(sum(grades_lst) / len(grades_lst))
+images/sample_dev_009.jpeg	break

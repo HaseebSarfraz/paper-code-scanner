@@ -1,0 +1,602 @@
+[
+  {
+    "img_path": "Dataset\\train\\images\\sample_001.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_002.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_003.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_004.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_005.png",
+    "label": "stack.append(items[right_idx])"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_006.png",
+    "label": "my_dict = {\"a\":[1,2],\"b\":[3,4]}"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_007.png",
+    "label": "idx = s.find('a')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_008.png",
+    "label": "print(f\"Total: {total}\")"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_009.png",
+    "label": "matrix = [[1,2],[3,4]]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_010.png",
+    "label": "matrix = [[1,2],[3,4]]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_011.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_012.png",
+    "label": "my_dict = {\"a\":[1,2],\"b\":[3,4]}"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_013.png",
+    "label": "print(f\"Total: {total}\")"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_014.png",
+    "label": "idx = s.find('a')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_015.png",
+    "label": "lst = [x**2 for x in range(6)]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_016.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_017.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_018.png",
+    "label": "stack.append(items[right_idx])"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_019.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_020.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_021.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_022.png",
+    "label": "idx = s.find('a')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_023.png",
+    "label": "lst = [x**2 for x in range(6)]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_024.png",
+    "label": "matrix = [[1,2],[3,4]]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_025.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_026.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_027.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_028.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_029.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_030.png",
+    "label": "stack.append(items[right_idx])"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_031.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_032.png",
+    "label": "for i in range(10): print(i)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_033.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_034.png",
+    "label": "path = r'C:\\tmp\\file'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_035.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_036.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_037.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_038.png",
+    "label": "idx = s.find('a')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_039.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_040.png",
+    "label": "lst = [x**2 for x in range(6)]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_041.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_042.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_043.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_044.png",
+    "label": "idx = s.find('a')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_045.png",
+    "label": "print(f\"Total: {total}\")"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_046.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_047.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_048.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_049.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_050.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_051.png",
+    "label": "average = sum(lst)/len(lst)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_052.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_053.png",
+    "label": "print(f\"Total: {total}\")"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_054.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_055.png",
+    "label": "path = r'C:\\tmp\\file'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_056.png",
+    "label": "for i in range(10): print(i)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_057.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_058.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_059.png",
+    "label": "average = sum(lst)/len(lst)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_060.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_061.png",
+    "label": "roots = [sqrt(x) for x in xs]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_062.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_063.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_064.png",
+    "label": "roots = [sqrt(x) for x in xs]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_065.png",
+    "label": "idx = s.find('a')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_066.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_067.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_068.png",
+    "label": "average = sum(lst)/len(lst)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_069.png",
+    "label": "stack.append(items[right_idx])"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_070.png",
+    "label": "stack.append(items[right_idx])"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_071.png",
+    "label": "stack.append(items[right_idx])"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_072.png",
+    "label": "lst = [x**2 for x in range(6)]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_073.png",
+    "label": "for i in range(10): print(i)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_074.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_075.png",
+    "label": "def add(a,b): return a+b"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_076.png",
+    "label": "idx = s.find('a')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_077.png",
+    "label": "from math import sqrt"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_078.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_079.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_080.png",
+    "label": "roots = [sqrt(x) for x in xs]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_081.png",
+    "label": "from math import sqrt"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_082.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_083.png",
+    "label": "print(f\"Total: {total}\")"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_084.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_085.png",
+    "label": "for i in range(10): print(i)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_086.png",
+    "label": "def add(a,b): return a+b"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_087.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_088.png",
+    "label": "lst = [x**2 for x in range(6)]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_089.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_090.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_091.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_092.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_093.png",
+    "label": "path = r'C:\\tmp\\file'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_094.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_095.png",
+    "label": "scores.sort(reverse=True)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_096.png",
+    "label": "stack.append(items[right_idx])"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_097.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_098.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_099.png",
+    "label": "print(f\"Total: {total}\")"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_100.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_101.png",
+    "label": "from math import sqrt"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_102.png",
+    "label": "my_dict = {\"a\":[1,2],\"b\":[3,4]}"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_103.png",
+    "label": "for i in range(10): print(i)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_104.png",
+    "label": "lst = [x**2 for x in range(6)]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_105.png",
+    "label": "scores.sort(reverse=True)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_106.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_107.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_108.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_109.png",
+    "label": "my_dict = {\"a\":[1,2],\"b\":[3,4]}"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_110.png",
+    "label": "for i in range(10): print(i)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_111.png",
+    "label": "from math import sqrt"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_112.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_113.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_114.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_115.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_116.png",
+    "label": "def add(a,b): return a+b"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_117.png",
+    "label": "path = r'C:\\tmp\\file'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_118.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_119.png",
+    "label": "text = 'he said \"hi\"'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_120.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_121.png",
+    "label": "if val == \"y\": break"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_122.png",
+    "label": "scores.sort(reverse=True)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_123.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_124.png",
+    "label": "print('done!')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_125.png",
+    "label": "path = r'C:\\tmp\\file'"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_126.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_127.png",
+    "label": "from math import sqrt"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_128.png",
+    "label": "def add(a,b): return a+b"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_129.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_130.png",
+    "label": "my_dict = {\"a\":[1,2],\"b\":[3,4]}"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_131.png",
+    "label": "scores.sort(reverse=True)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_132.png",
+    "label": "roots = [sqrt(x) for x in xs]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_133.png",
+    "label": "idx = s.find('a')"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_134.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_135.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_136.png",
+    "label": "average = sum(lst)/len(lst)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_137.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_138.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_139.png",
+    "label": "while n > 0: n -= 1"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_140.png",
+    "label": "print(f\"Total: {total}\")"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_141.png",
+    "label": "try: y = 1/0\nexcept: pass"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_142.png",
+    "label": "roots = [sqrt(x) for x in xs]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_143.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_144.png",
+    "label": "print(f\"Total: {total}\")"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_145.png",
+    "label": "result = func(a,b)"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_146.png",
+    "label": "from math import sqrt"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_147.png",
+    "label": "roots = [sqrt(x) for x in xs]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_148.png",
+    "label": "lst = [x**2 for x in range(6)]"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_149.png",
+    "label": "flag = not done"
+  },
+  {
+    "img_path": "Dataset\\train\\images\\sample_150.png",
+    "label": "print('done!')"
+  }
+]

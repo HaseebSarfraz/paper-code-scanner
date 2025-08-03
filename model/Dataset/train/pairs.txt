@@ -1,0 +1,150 @@
+images/sample_001.png	try: y = 1/0 except: pass
+images/sample_002.png	try: y = 1/0 except: pass
+images/sample_003.png	result = func(a,b)
+images/sample_004.png	flag = not done
+images/sample_005.png	stack.append(items[right_idx])
+images/sample_006.png	my_dict = {"a":[1,2],"b":[3,4]}
+images/sample_007.png	idx = s.find('a')
+images/sample_008.png	print(f"Total: {total}")
+images/sample_009.png	matrix = [[1,2],[3,4]]
+images/sample_010.png	matrix = [[1,2],[3,4]]
+images/sample_011.png	while n > 0: n -= 1
+images/sample_012.png	my_dict = {"a":[1,2],"b":[3,4]}
+images/sample_013.png	print(f"Total: {total}")
+images/sample_014.png	idx = s.find('a')
+images/sample_015.png	lst = [x**2 for x in range(6)]
+images/sample_016.png	result = func(a,b)
+images/sample_017.png	text = 'he said "hi"'
+images/sample_018.png	stack.append(items[right_idx])
+images/sample_019.png	if val == "y": break
+images/sample_020.png	print('done!')
+images/sample_021.png	text = 'he said "hi"'
+images/sample_022.png	idx = s.find('a')
+images/sample_023.png	lst = [x**2 for x in range(6)]
+images/sample_024.png	matrix = [[1,2],[3,4]]
+images/sample_025.png	print('done!')
+images/sample_026.png	text = 'he said "hi"'
+images/sample_027.png	if val == "y": break
+images/sample_028.png	while n > 0: n -= 1
+images/sample_029.png	if val == "y": break
+images/sample_030.png	stack.append(items[right_idx])
+images/sample_031.png	text = 'he said "hi"'
+images/sample_032.png	for i in range(10): print(i)
+images/sample_033.png	try: y = 1/0 except: pass
+images/sample_034.png	path = r'C:\tmp\file'
+images/sample_035.png	if val == "y": break
+images/sample_036.png	result = func(a,b)
+images/sample_037.png	print('done!')
+images/sample_038.png	idx = s.find('a')
+images/sample_039.png	flag = not done
+images/sample_040.png	lst = [x**2 for x in range(6)]
+images/sample_041.png	flag = not done
+images/sample_042.png	result = func(a,b)
+images/sample_043.png	result = func(a,b)
+images/sample_044.png	idx = s.find('a')
+images/sample_045.png	print(f"Total: {total}")
+images/sample_046.png	if val == "y": break
+images/sample_047.png	while n > 0: n -= 1
+images/sample_048.png	while n > 0: n -= 1
+images/sample_049.png	if val == "y": break
+images/sample_050.png	print('done!')
+images/sample_051.png	average = sum(lst)/len(lst)
+images/sample_052.png	text = 'he said "hi"'
+images/sample_053.png	print(f"Total: {total}")
+images/sample_054.png	while n > 0: n -= 1
+images/sample_055.png	path = r'C:\tmp\file'
+images/sample_056.png	for i in range(10): print(i)
+images/sample_057.png	if val == "y": break
+images/sample_058.png	try: y = 1/0 except: pass
+images/sample_059.png	average = sum(lst)/len(lst)
+images/sample_060.png	if val == "y": break
+images/sample_061.png	roots = [sqrt(x) for x in xs]
+images/sample_062.png	try: y = 1/0 except: pass
+images/sample_063.png	while n > 0: n -= 1
+images/sample_064.png	roots = [sqrt(x) for x in xs]
+images/sample_065.png	idx = s.find('a')
+images/sample_066.png	result = func(a,b)
+images/sample_067.png	print('done!')
+images/sample_068.png	average = sum(lst)/len(lst)
+images/sample_069.png	stack.append(items[right_idx])
+images/sample_070.png	stack.append(items[right_idx])
+images/sample_071.png	stack.append(items[right_idx])
+images/sample_072.png	lst = [x**2 for x in range(6)]
+images/sample_073.png	for i in range(10): print(i)
+images/sample_074.png	print('done!')
+images/sample_075.png	def add(a,b): return a+b
+images/sample_076.png	idx = s.find('a')
+images/sample_077.png	from math import sqrt
+images/sample_078.png	try: y = 1/0 except: pass
+images/sample_079.png	flag = not done
+images/sample_080.png	roots = [sqrt(x) for x in xs]
+images/sample_081.png	from math import sqrt
+images/sample_082.png	try: y = 1/0 except: pass
+images/sample_083.png	print(f"Total: {total}")
+images/sample_084.png	try: y = 1/0 except: pass
+images/sample_085.png	for i in range(10): print(i)
+images/sample_086.png	def add(a,b): return a+b
+images/sample_087.png	print('done!')
+images/sample_088.png	lst = [x**2 for x in range(6)]
+images/sample_089.png	print('done!')
+images/sample_090.png	text = 'he said "hi"'
+images/sample_091.png	text = 'he said "hi"'
+images/sample_092.png	text = 'he said "hi"'
+images/sample_093.png	path = r'C:\tmp\file'
+images/sample_094.png	flag = not done
+images/sample_095.png	scores.sort(reverse=True)
+images/sample_096.png	stack.append(items[right_idx])
+images/sample_097.png	result = func(a,b)
+images/sample_098.png	try: y = 1/0 except: pass
+images/sample_099.png	print(f"Total: {total}")
+images/sample_100.png	text = 'he said "hi"'
+images/sample_101.png	from math import sqrt
+images/sample_102.png	my_dict = {"a":[1,2],"b":[3,4]}
+images/sample_103.png	for i in range(10): print(i)
+images/sample_104.png	lst = [x**2 for x in range(6)]
+images/sample_105.png	scores.sort(reverse=True)
+images/sample_106.png	if val == "y": break
+images/sample_107.png	try: y = 1/0 except: pass
+images/sample_108.png	while n > 0: n -= 1
+images/sample_109.png	my_dict = {"a":[1,2],"b":[3,4]}
+images/sample_110.png	for i in range(10): print(i)
+images/sample_111.png	from math import sqrt
+images/sample_112.png	print('done!')
+images/sample_113.png	while n > 0: n -= 1
+images/sample_114.png	flag = not done
+images/sample_115.png	if val == "y": break
+images/sample_116.png	def add(a,b): return a+b
+images/sample_117.png	path = r'C:\tmp\file'
+images/sample_118.png	while n > 0: n -= 1
+images/sample_119.png	text = 'he said "hi"'
+images/sample_120.png	while n > 0: n -= 1
+images/sample_121.png	if val == "y": break
+images/sample_122.png	scores.sort(reverse=True)
+images/sample_123.png	result = func(a,b)
+images/sample_124.png	print('done!')
+images/sample_125.png	path = r'C:\tmp\file'
+images/sample_126.png	while n > 0: n -= 1
+images/sample_127.png	from math import sqrt
+images/sample_128.png	def add(a,b): return a+b
+images/sample_129.png	result = func(a,b)
+images/sample_130.png	my_dict = {"a":[1,2],"b":[3,4]}
+images/sample_131.png	scores.sort(reverse=True)
+images/sample_132.png	roots = [sqrt(x) for x in xs]
+images/sample_133.png	idx = s.find('a')
+images/sample_134.png	flag = not done
+images/sample_135.png	try: y = 1/0 except: pass
+images/sample_136.png	average = sum(lst)/len(lst)
+images/sample_137.png	try: y = 1/0 except: pass
+images/sample_138.png	flag = not done
+images/sample_139.png	while n > 0: n -= 1
+images/sample_140.png	print(f"Total: {total}")
+images/sample_141.png	try: y = 1/0 except: pass
+images/sample_142.png	roots = [sqrt(x) for x in xs]
+images/sample_143.png	flag = not done
+images/sample_144.png	print(f"Total: {total}")
+images/sample_145.png	result = func(a,b)
+images/sample_146.png	from math import sqrt
+images/sample_147.png	roots = [sqrt(x) for x in xs]
+images/sample_148.png	lst = [x**2 for x in range(6)]
+images/sample_149.png	flag = not done
+images/sample_150.png	print('done!')
