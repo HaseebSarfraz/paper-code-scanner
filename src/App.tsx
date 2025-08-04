@@ -43,21 +43,36 @@ export default function App() {
   }
 
   async function handleScan() {
-    if (!photoFile) return;
-    try {
-      setScanBusy(true);
-      setResult("⏳ Scanning…");
+    if (!photoFile) return;                 // nothing attached yet
 
-      /* temporary 1-second fake delay */
-      await new Promise(r => setTimeout(r, 1000));
+  try {
+    setScanBusy(true);
+    setResult("⏳ Scanning…");
 
-      // later replace with real OCR fetch + setCode(text);
-      setResult("✅ Scan complete (stub)");
-      setStep("scanned");
-    } finally {
-      setScanBusy(false);
-    }
+    const fd = new FormData();
+    fd.append("file", photoFile, photoFile.name);
+
+    const resp  = await fetch("http://localhost:5000/api/ocr", {
+      method: "POST",
+      body:   fd,
+    });
+
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+
+    const { text } = await resp.json();   // backend returns {text: "..."}
+    setCode(text);
+    setResult("✅ Scan complete");
+
+    setStep("scanned");                   // enables Edit button
+  } catch (err: unknown) {
+    console.error(err);
+    const msg =
+    err instanceof Error ? err.message : String(err);
+    setResult(`❌ OCR failed: ${msg}`);
+  } finally {
+    setScanBusy(false);
   }
+}
   
 
   function handleEdit() {
