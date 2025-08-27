@@ -1,52 +1,31 @@
 from pathlib import Path
-import json
 from paddleocr import PaddleOCR
 
+# Create a single OCR engine once (faster for repeated runs)
+_OCR = PaddleOCR(lang="en", use_textline_orientation=True)
 
-def run_ocr():
+def ocr_one_text(image_path: str, min_score: float = 0.50) -> str:
+    """Run OCR on one image and return a newline-joined string."""
+    img = Path(image_path)
+    if not img.exists():
+        raise FileNotFoundError(img)
 
-    DICT_PATH = Path(
-        r"C:\Users\sarfr\Documents\dev-orig\paper-code-scanner\model\infer\python_ascii.txt"
-    )
+    res = _OCR.predict(str(img))
+    if not res:
+        return ""
 
-    # 1  create the pipeline
-    ocr = PaddleOCR(use_textline_orientation=True, lang="en")
-    # Path to your image
-    json_path = Path(r"C:\Users\sarfr\Documents\dev-orig\paper-code-scanner\model\Dataset\dev\pairs.json")
-
+    # Newer PaddleOCR returns list[dict]; older returns list[list]
     try:
+        texts, scores = res[0]["rec_texts"], res[0]["rec_scores"]
+    except (TypeError, KeyError):
+        blocks = res[0]
+        texts  = [b[1][0] for b in blocks]
+        scores = [b[1][1] for b in blocks]
 
-        with json_path.open(encoding="utf-8") as f:
-            pairs = json.load(f)
-
-        repo_root = json_path.parents[2]
-
-        for pair in pairs:
-
-            img_abs = (repo_root / pair["img_path"]).resolve()
-
-            results = ocr.predict(str(img_abs))
-
-            #print("Raw results:", results)  # Debug Line
-
-            if results and isinstance(results, list) and len(results) > 0:
-                # The new API returns a list with a dictionary containing rec_texts and rec_scores
-                result_dict = results[0]
-
-                rec_texts = result_dict['rec_texts']
-                rec_scores = result_dict['rec_scores']
-                line = ""
-                for text in rec_texts:
-                    line += text
-                    line += " "
-                print(f"{line, rec_scores}")
-            else:
-                print("No results returned or unexpected format")
-
-    except Exception as e:
-        print(f"Error with predict(): {e}")
-
-
+    keep = [t for t, s in zip(texts, scores) if s >= min_score]
+    return "\n".join(keep)
 
 if __name__ == "__main__":
-    run_ocr()
+    # Quick local test: change the path to your file
+    IMG = r"C:\Users\sarfr\Documents\dev-orig\paper-code-scanner\model\Dataset\dev\images\Test1n_1.jpg"
+    print(ocr_one_text(IMG))

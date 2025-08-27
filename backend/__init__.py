@@ -38,13 +38,30 @@ def api_ocr():
         if not result:
             return jsonify({"text": ""})
 
-        raw = "\n".join(
-            t for t, s in zip(result[0]["rec_texts"], result[0]["rec_scores"])
-            if s > 0.50
-            )
+        texts = result[0]["rec_texts"] if isinstance(result[0], dict) else [b[1][0] for b in result[0]]
+        scores = result[0].get("rec_scores", [1.0]*len(texts)) if isinstance(result[0], dict) else [b[1][1] for b in result[0]]
 
-        fixed = fix_code(raw)
+        junk_exact  = {"cs"}                              # the little “CS” line
+        junk_substrs = ("camscanner",)                     # matches ScannedwithCamScanner / Scanned with CamScanner
+
+        lines = []
+        for t, s in zip(texts, scores):
+            t = (t or "").strip()
+            if not t:
+                continue
+            tl = t.lower()
+            if tl in junk_exact or any(sub in tl for sub in junk_substrs):
+                continue
+            # only drop *obvious* garbage (tiny + ultra low conf)
+            if s < 0.05 and len(t) <= 2:
+                continue
+            lines.append(t)
+
+        raw = "\n".join(lines)
+
+    fixed = fix_code(raw)
 
     return jsonify({"text": fixed})
-
+    # return jsonify({"text": fixed, "raw": raw, "scores": [round(float(s), 3) for s in scores]})
+    # return jsonify({"text": raw})
 

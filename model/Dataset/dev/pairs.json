@@ -34,5 +34,9 @@
   {
     "img_path": "Dataset/pending/images/IMG_6753 - Sasha.jpeg",
     "label": "break"
+  },
+  {
+    "img_path": "Dataset/pending/images/Test1n_1 - Haseeb Sarfraz.jpg",
+    "label": "def foo1(self, car: str, m:str) -> str:"
   }
 ]
