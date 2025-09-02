@@ -137,16 +137,14 @@ export default function WorkingPane({
           </Panel>
         </div>
 
-        {/* 3 ▸ compile output */}
-        <Panel title="3. Test results">
-          <div className="flex-1 p-4 text-sm leading-relaxed overflow-auto">
-            {result || (
-              <span className="opacity-60">
-                Compilation / test output will appear here…
-              </span>
-            )}
-          </div>
-        </Panel>
+        {/* 3 ▸ test output */}
+      <Panel title="3. Test results">
+        <div className="flex-1 p-4 overflow-auto">
+          <pre className="whitespace-pre-wrap break-words font-mono text-sm leading-6">
+            {result || "Compilation / test output will appear here…"}
+          </pre>
+        </div>
+      </Panel>
       </div>
     </div>
   );
