@@ -6,15 +6,15 @@ export function Button({
   onClick,
   variant = "secondary",
   icon,
-  disabled = false,          // ← NEW: default false
+  disabled = false,          
 }: {
   children: React.ReactNode;
   onClick?: () => void;
   icon?: React.ReactNode;
   variant?: "primary" | "secondary";
-  disabled?: boolean;        // ← NEW
+  disabled?: boolean;      
 }) {
-  /* ---------- base styles ---------- */
+
   const base =
     "inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition";
 
@@ -23,7 +23,6 @@ export function Button({
       ? "bg-emerald-500 text-white hover:bg-emerald-400"
       : "bg-surface-3 hover:bg-surface-4 ring-1 ring-accent-ring/30";
 
-  /* ---------- disabled override ---------- */
   const disabledStyles = disabled
     ? "bg-slate-600/40 text-slate-300 opacity-60 cursor-not-allowed pointer-events-none"
     : "";

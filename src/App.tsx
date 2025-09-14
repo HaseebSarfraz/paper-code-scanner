@@ -3,7 +3,6 @@ import React, { useState, useRef } from "react";
 import Header       from "./Components/Header";
 import WorkingPane  from "./Components/WorkingPane";
 
-/* ------------------------------------------------------------------ */
 
 const LANGUAGES = [
   "Python",
@@ -14,7 +13,7 @@ const LANGUAGES = [
 ] as const;
 
 export default function App() {
-  /* UI state -------------------------------------------------------- */
+
   const [objective, setObjective] = useState("");          
   
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -36,14 +35,13 @@ export default function App() {
   const isReadOnly = step !== "editing";
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  /* stub actions ---------------------------------------------------- */
   /* ----- handlers for the buttons ----- */
   function handleAttach() {
     fileInputRef.current?.click();
   }
 
   async function handleScan() {
-    if (!photoFile) return;                 // nothing attached yet
+    if (!photoFile) return;                 
 
   try {
     setScanBusy(true);
@@ -59,7 +57,7 @@ export default function App() {
 
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
 
-    const { text } = await resp.json();   // backend returns {text: "..."}
+    const { text } = await resp.json();   
     setCode(text);
     setResult("✅ Scan complete");
 
@@ -80,8 +78,6 @@ export default function App() {
   }
 
 
-  // --- helpers (put these above handleRun) -------------------------------
-
   type TestCase = {
     name: string;
     status: "passed" | "failed" | "skipped" | "error";
@@ -94,7 +90,7 @@ export default function App() {
     const n = (name || "").toLowerCase();
     if (/\b(adversarial|invalid|negative|malformed|exception|error)\b/.test(n)) return "adversarial";
     if (/\b(edge|boundary|zero|max|min|empty|null)\b/.test(n)) return "edge";
-    // default everything else to "normal"
+   
     return "normal";
   }
 
@@ -130,7 +126,7 @@ export default function App() {
 
     const data = await resp.json();
 
-    // IDE-like syntax error
+  
     if (data.syntax_error) {
       const se = data.syntax_error as {
         message: string; lineno?: number; offset?: number; line?: string; caret?: string;
@@ -139,7 +135,6 @@ export default function App() {
       return;
     }
 
-    // Summary numbers
     const s = data.summary ?? {};
     const total = (s.passed ?? 0) + (s.failed ?? 0) + (s.errors ?? 0) + (s.skipped ?? 0);
     const header =
@@ -147,7 +142,7 @@ export default function App() {
       `${s.passed ?? 0}/${total} passed ` +
       `(failed: ${s.failed ?? 0}, errors: ${s.errors ?? 0}, skipped: ${s.skipped ?? 0})`;
 
-    // Friendly per-test listing using structured cases
+
     const cases: TestCase[] = Array.isArray(data.cases) ? data.cases : [];
     const buckets: Record<"normal"|"edge"|"adversarial", TestCase[]> = {
       normal: [], edge: [], adversarial: [],
@@ -175,7 +170,7 @@ export default function App() {
       .filter(Boolean)
       .join("\n\n");
 
-    // Assemble the final pane text
+   
     const blocks: string[] = [
       pretty,
       "— output —",
@@ -209,14 +204,13 @@ export default function App() {
         onChange={(e) => {
           const f = e.target.files?.[0];
           if (f) {
-            setPhotoFile(f);      // store for Step 2
+            setPhotoFile(f);      
            setStep("picked");    // enables Scan button
           }
         }}
       />
       
 
-      {/* ――― page body (centred, capped at 6xl) ――― */}
       <main className="pt-20 min-h-[calc(100vh-5rem)]
                  flex items-center w-full max-w-8xl mx-auto px-4">
         <WorkingPane
@@ -229,7 +223,7 @@ export default function App() {
 
           result={result}
          
-          language={language.toLowerCase()}  /* Monaco expects lowercase ids */
+          language={language.toLowerCase()}  
           onAttach={handleAttach}
           onScan={handleScan}
           onEdit={handleEdit}
@@ -247,67 +241,3 @@ export default function App() {
 }
 
 
-
-// // src/App.tsx
-
-// import React, { useState } from "react";
-// import Header from "./Components/Header";
-// import WorkingPane from "./Components/WorkingPane";
-
-
-// export default function App() {
-
-//   const LANGUAGES = 
-//   [ "Python", 
-//     "Java", 
-//     "C", 
-//     "C++", 
-//     "JavaScript",
-//   ]
-//   const [sidebarOpen, setSidebarOpen] = useState(false);
-//   const [language, setLanguage] = useState<typeof LANGUAGES[number]>(
-//     LANGUAGES[0]
-//   );
-
-//    // code / compile result for the new pane
-//   const [code, setCode] = useState("");
-//   const [result, setResult] = useState("");
-
-//   /* 3️⃣  stub actions (replace later) */
-//   function handleScan() {
-//     alert("TODO: open camera / file picker 🚧");
-//   }
-//   function handleCompile() {
-//     setResult(`You typed ${code.length} characters.`);
-//   }
-
-//   return (
-//     <div className="min-h-screen bg-slate-950 text-white">
-//       <Header
-//         onToggleSidebar={() => setSidebarOpen((p) => !p)}
-//         language={language}
-//         onToggleLanguage={setLanguage}
-        
-//       />
-
-//       {/* push content down by header height */}
-//       <div className="pt-20 flex">
-//         {/* Sidebar + main work area here */}
-//       </div>
-
-//       {/* ---------- main row under header ---------- */}
-//       <div className="pt-20 flex">
-//         {/* (Sidebar component would go here when you build it) */}
-
-//         {/* Main work area */}
-//         <WorkingPane
-//           code={code}
-//           onChangeCode={setCode}
-//           result={result}
-//           onScan={handleScan}
-//           onCompile={handleCompile}
-//         />
-//       </div>
-//     </div>
-//   );
-// }

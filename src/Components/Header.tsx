@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Languages } from "lucide-react"; // optional icon lib
+import { Menu, Languages } from "lucide-react"; 
 
  const LANGUAGES = 
   [ "Python", 
@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className="fixed inset-x-0 top-0 z-50 h-20 flex items-center justify-between 
     px-4 sm:px-6 bg-slate-900/90 backdrop-blur border-b border-slate-800">
-      {/* Left – burger */}
+      {/* Left */}
       <button
         onClick={onToggleSidebar}
         aria-label="Toggle sidebar"
@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({
         <Menu strokeWidth={2} size={24} />
       </button>
 
-      {/* Center – logo */}
+      {/* Center */}
       <h1 className="text-2xl sm:text-3xl font-extrabold tracking-wide text-slate-100 font-marker">
         Paper&nbsp;→&nbsp;Compiler
       </h1>

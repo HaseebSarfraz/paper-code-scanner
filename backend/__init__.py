@@ -1,5 +1,3 @@
-# backend/__init__.py
-import ast
 from flask import Flask, request, jsonify
 from .llm import fix_code, gen_pytests
 from flask_cors import CORS
@@ -10,14 +8,14 @@ import subprocess, re
 import xml.etree.ElementTree as ET
 
 def _parse_junit(xml_path: str):
-    """Return (cases, summary) from a JUnit XML file."""
+
     cases = []
     summary = {"passed": 0, "failed": 0, "skipped": 0, "errors": 0}
 
     try:
         root = ET.parse(xml_path).getroot()
     except Exception:
-        return cases, summary  # no report (e.g., collection error)
+        return cases, summary
 
     for tc in root.iter("testcase"):
         name = tc.attrib.get("name", "")
@@ -41,7 +39,7 @@ def _parse_junit(xml_path: str):
                     status = "skipped"
                     message = (node.attrib.get("message") or node.text or "").strip()
 
-        # categorize by test name prefix
+        # Categorizing test cases
         cat = "other"
         if name.startswith("test_normal"):
             cat = "normal"
@@ -62,14 +60,12 @@ def _parse_junit(xml_path: str):
     return cases, summary
 
 def _stabilize_tests(src: str, max_tests: int = 12) -> str:
-    """Clean LLM test output so pytest can collect reliably, preserving args."""
+
     src = (src or "")
 
-    # 1) strip chat markers / fences
     src = src.replace("<|im_start|>", "").replace("<|im_end|>", "")
     src = re.sub(r"```(?:python)?\s*|```", "", src)
 
-    # 2) drop obvious prose-only lines
     keep = []
     PAT_ALLOWED = re.compile(
         r"^\s*(#|from\s+\w|import\s+\w|@|def\s+test_|class\s+\w|assert\b|with\b|for\b|if\b|elif\b|else\b|"
@@ -83,13 +79,11 @@ def _stabilize_tests(src: str, max_tests: int = 12) -> str:
             keep.append(line)
     src = "\n".join(keep)
 
-    # 3) ensure common imports
     if "pytest" in src and "import pytest" not in src:
         src = "import pytest\n" + src
     if "sys." in src and "import sys" not in src:
         src = "import sys\n" + src
 
-    # 4) cap count ONLY; do not rename or drop args
     out, count = [], 0
     for line in src.splitlines():
         if re.match(r'^\s*def\s+test_', line):
@@ -100,37 +94,29 @@ def _stabilize_tests(src: str, max_tests: int = 12) -> str:
 
     src = "\n".join(out).strip() + "\n"
 
-    # 5) make sure it compiles; if not, do a quick syntax fix
     try:
         compile(src, "tests/test_solution.py", "exec")
         return src
     except SyntaxError:
-        return src  # our later finalizer/safety net will handle this anyway
+        return src
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-# ───── create ONE Paddle instance (starts once, re-used for every call) ──────
-# • english charset → no CJK dictionary noise
-# • turn OFF textline orientation – in code snippets everything is left-to-right
-# • no angle classifier – speeds things up & avoids occasional rotations
 ocr = PaddleOCR(
        lang="en",
        use_textline_orientation=True)
 
 @app.route("/api/ocr", methods=["POST"])
 def api_ocr():
-    """
-    Accepts a multipart/form-data field called 'file'
-    Returns {"text": "..."} containing the recognised code.
-    """
+
     if "file" not in request.files:
         return jsonify({"error": "no file"}), 400
 
     f = request.files["file"]
     fname = secure_filename(f.filename)
 
-    # write to a temp-file so PaddleOCR can read it
+    # writing to a temp-file so PaddleOCR can read it
     with tempfile.TemporaryDirectory() as tmpdir:
         path = os.path.join(tmpdir, fname)
         f.save(path)
@@ -142,8 +128,8 @@ def api_ocr():
         texts = result[0]["rec_texts"] if isinstance(result[0], dict) else [b[1][0] for b in result[0]]
         scores = result[0].get("rec_scores", [1.0]*len(texts)) if isinstance(result[0], dict) else [b[1][1] for b in result[0]]
 
-        junk_exact  = {"cs"}                              # the little “CS” line
-        junk_substrs = ("camscanner",)                     # matches ScannedwithCamScanner / Scanned with CamScanner
+        junk_exact  = {"cs"}
+        junk_substrs = ("camscanner",)   # matches ScannedwithCamScanner / Scanned with CamScanner
 
         lines = []
         for t, s in zip(texts, scores):
@@ -153,7 +139,6 @@ def api_ocr():
             tl = t.lower()
             if tl in junk_exact or any(sub in tl for sub in junk_substrs):
                 continue
-            # only drop *obvious* garbage (tiny + ultra low conf)
             if s < 0.05 and len(t) <= 2:
                 continue
             lines.append(t)
@@ -163,15 +148,11 @@ def api_ocr():
     fixed = fix_code(raw)
 
     return jsonify({"text": fixed})
-    # return jsonify({"text": fixed, "raw": raw, "scores": [round(float(s), 3) for s in scores]})
-    # return jsonify({"text": raw})
+
 
 @app.route("/api/run_tests", methods=["POST"])
 def api_run_tests():
-    """
-    Body: {"code": "<user-edited code>", "objective": "<what it should do>"}
-    Returns: { tests, output, returncode, summary:{passed,failed,skipped,errors} }
-    """
+
     data = request.get_json(force=True, silent=True) or {}
     code = (data.get("code") or "").strip()
     objective = (data.get("objective") or "").strip()
@@ -179,9 +160,8 @@ def api_run_tests():
     if not code:
         return jsonify({"error": "no code"}), 400
 
-    # --- Syntax pre-check (fail fast like an IDE) ----------------------
     try:
-        # compile() catches SyntaxError with accurate line/column
+        # It catches errors at runtime and also specifies the exact line/col in code
         compile(code, "solution.py", "exec")
     except SyntaxError as e:
         offending = (e.text or "").rstrip("\n")
@@ -229,11 +209,11 @@ def api_run_tests():
     elif needs_from_import:
         tests_py = "from solution import *\n" + tests_py.lstrip()
 
-    # 2) Run tests in the Docker sandbox image you built earlier
+    # 2) Run tests in the Docker sandbox
     runner_image = os.environ.get("RUNNER_IMAGE", "paper-runner:py310")
 
     with tempfile.TemporaryDirectory() as tmpdir:
-        # write user's code
+
         with open(os.path.join(tmpdir, "solution.py"), "w", encoding="utf-8") as f:
             f.write(code)
 
@@ -242,12 +222,11 @@ def api_run_tests():
         with open(os.path.join(tmpdir, "tests", "test_solution.py"), "w", encoding="utf-8") as f:
             f.write(tests_py)
 
-        # ENTRYPOINT runs: python -m pytest -q --maxfail=1 --disable-warnings
         report_path = os.path.join(tmpdir, "report.xml")
 
         cmd = [
             "docker", "run", "--rm",
-            "-m", "512m",            # slightly stricter cap is fine
+            "-m", "512m",
             "--cpus", "1.0",
             "--pids-limit", "256",
             "--network", "none",
@@ -269,10 +248,9 @@ def api_run_tests():
 
         cases, structured_summary = _parse_junit(report_path)
 
-    # keep your old text-summary as fallback if XML was missing
     if (structured_summary["passed"] + structured_summary["failed"] +
         structured_summary["skipped"] + structured_summary["errors"]) == 0:
-        # fallback to your regex summary
+
         summary = {"passed": 0, "failed": 0, "skipped": 0, "errors": 0}
         for n, label in re.findall(r"(\d+)\s+(passed|failed|skipped|errors?)", out, re.I):
             key = "errors" if label.lower().startswith("error") else label.lower()
@@ -282,8 +260,8 @@ def api_run_tests():
 
     return jsonify({
         "tests": tests_py,
-        "output": out,                # keep full raw output (debug)
+        "output": out,
         "returncode": proc.returncode,
         "summary": summary,
-        "cases": cases,               # <— NEW: structured per-test results
+        "cases": cases,
     })

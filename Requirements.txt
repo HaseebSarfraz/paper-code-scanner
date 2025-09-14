@@ -1,13 +1,10 @@
-# Backend core
+# --- Backend core ---
 Flask>=2.3,<3.1
 flask-cors>=4.0,<5
 requests>=2.32,<3
-Pillow>=10,<11
 
-# If you will use OCR locally, first install the correct paddle wheel for your OS/CUDA,
-# then install these (you can also keep them here if your env already has the right wheel):
-# paddleocr and opencv-python rely on paddlepaddle / paddlepaddle-gpu being installed properly.
-
+# If you use OCR, these are needed (but paddlepaddle / paddlepaddle-gpu must be installed manually per OS/CUDA).
+# Keep them here only if your local env already has the correct paddlepaddle wheel installed.
 paddleocr>=2.7,<3
 opencv-python>=4.8,<5
 numpy>=1.24,<3
