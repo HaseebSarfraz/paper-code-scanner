@@ -1,17 +1,18 @@
 # Paper → Compiler
 
-<video controls width="840"
-  src="https://github.com/HaseebSarFraz/paper-code-scanner/releases/download/v0.1.0/Demo.1.mp4"></video>
-<p><a href="https://github.com/HaseebSarFraz/paper-code-scanner/releases/download/v0.1.0/Demo.1.mp4">Download Demo 1 (mp4)</a></p>
+## 🎬 Demos
 
 <video controls width="840"
-  src="https://github.com/HaseebSarFraz/paper-code-scanner/releases/download/v0.1.0/Demo.2.mp4"></video>
-<p><a href="https://github.com/HaseebSarFraz/paper-code-scanner/releases/download/v0.1.0/Demo.2.mp4">Download Demo 2 (mp4)</a></p>
+  src="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.1.mp4"></video>
+<p><a href="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.1.mp4">Download Demo 1 (mp4)</a></p>
 
 <video controls width="840"
-  src="https://github.com/HaseebSarFraz/paper-code-scanner/releases/download/v0.1.0/Demo.3.mp4"></video>
-<p><a href="https://github.com/HaseebSarFraz/paper-code-scanner/releases/download/v0.1.0/Demo.3.mp4">Download Demo 3 (mp4)</a></p>
+  src="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.2.mp4"></video>
+<p><a href="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.2.mp4">Download Demo 2 (mp4)</a></p>
 
+<video controls width="840"
+  src="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.3.mp4"></video>
+<p><a href="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.3.mp4">Download Demo 3 (mp4)</a></p>
 OCR ➜ Syntax-fix ➜ Auto-PyTests ➜ Sandboxed Run (Docker)
 
 Turn a **code screenshot** into runnable **Python**, auto-generate **pytest** suites with a local **CodeLlama** (llama.cpp) server, and execute them inside a locked **Docker** runner. Frontend is Vite/React; backend is Flask (served via **waitress** for the web app).
