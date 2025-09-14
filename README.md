@@ -1,5 +1,22 @@
 # Paper → Compiler
 
+## 🎬 Demos
+
+<video controls width="840"
+  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-1.mp4">
+  Download: <a href="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-1.mp4">demo-1.mp4</a>
+</video>
+
+<video controls width="840"
+  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-2.mp4">
+  Download: <a href="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-2.mp4">demo-2.mp4</a>
+</video>
+
+<video controls width="840"
+  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-3.mp4">
+  Download: <a href="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-3.mp4">demo-3.mp4</a>
+</video>
+
 OCR ➜ Syntax-fix ➜ Auto-PyTests ➜ Sandboxed Run (Docker)
 
 Turn a **code screenshot** into runnable **Python**, auto-generate **pytest** suites with a local **CodeLlama** (llama.cpp) server, and execute them inside a locked **Docker** runner. Frontend is Vite/React; backend is Flask (served via **waitress** for the web app).
