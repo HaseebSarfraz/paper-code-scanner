@@ -3,17 +3,17 @@
 ## 🎬 Demos
 
 <video controls width="840"
-  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-1.mp4](https://github.com/HaseebSarfraz/paper-code-scanner/releases/download/v0.1.0/Demo.1.mp4">
+  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-1.mp4">
   Download: <a href="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-1.mp4">demo-1.mp4</a>
 </video>
 
 <video controls width="840"
-  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-2.mp4](https://github.com/HaseebSarfraz/paper-code-scanner/releases/download/v0.1.0/Demo.2.mp4">
+  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-2.mp4">
   Download: <a href="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-2.mp4">demo-2.mp4</a>
 </video>
 
 <video controls width="840"
-  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-3.mp4](https://github.com/HaseebSarfraz/paper-code-scanner/releases/download/v0.1.0/Demo.3.mp4">
+  src="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-3.mp4">
   Download: <a href="https://github.com/<OWNER>/<REPO>/releases/download/v0.1.0/demo-3.mp4">demo-3.mp4</a>
 </video>
 
