@@ -3,7 +3,7 @@
 ## 🎬 Demos
 
 <video controls width="840"
-  src="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.1.mp4"></video>
+  src="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.mp4"></video>
 <p><a href="https://github.com/HaseebSarFraz/paper-code-scanner/releases/latest/download/Demo.mp4">Download Demo 1 (mp4)</a></p>
 
 Turn a **code screenshot** into runnable **Python**, auto-generate **pytest** suites with a local **CodeLlama** (llama.cpp) server, and execute them inside a locked **Docker** runner. Frontend is Vite/React; backend is Flask (served via **waitress** for the web app).
